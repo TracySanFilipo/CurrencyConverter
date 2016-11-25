@@ -13,6 +13,9 @@ class TestCurrency(unittest.TestCase):
         second_dollar = Currency('usd', 2)
         self.assertEqual(two_dollar, second_dollar)
 
+    # def test_currency_amount_and_code_negative(self):
+    #     one_dollar = Currency('usd', 1)
+    #     self.assertIsInstance(one_dollar, Currency)
 
 if __name__ == '__main__':
     unittest.main()
