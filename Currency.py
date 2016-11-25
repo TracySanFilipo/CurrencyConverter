@@ -1,4 +1,6 @@
-class Currency():
+import math
+
+class Currency:
     def __init__(self, nation, value):
-        self.nation = ""
-        self.value = []
+        self.nation = nation
+        self.value = value
