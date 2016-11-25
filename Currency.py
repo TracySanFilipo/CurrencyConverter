@@ -11,3 +11,7 @@ class Currency:
     def __add__(self, other):
         if self.nation == other.nation:
             return Currency(self.nation, self.value + other.value)
+
+    def __sub__(self, other):
+        if self.nation == other.nation:
+            return Currency(self.nation, self.value - other.value)

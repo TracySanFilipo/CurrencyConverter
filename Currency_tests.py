@@ -29,5 +29,11 @@ class TestCurrency(unittest.TestCase):
         self.assertEqual(five_dollar + three_dollar, Currency('usd', 8))
 
 
+    def test_subtract(self):
+        ten_dollar = Currency('usd', 10)
+        three_dollar = Currency('usd', 3)
+        self.assertEqual(ten_dollar - three_dollar, Currency('usd', 7))
+
+
 if __name__ == '__main__':
     unittest.main()
