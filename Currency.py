@@ -24,3 +24,7 @@ class Currency:
             return Currency(self.nation, self.value - other.value)
         else:
             raise DifferentCurrencyCodeError()
+
+    def __mul__(self, number):
+        if type(number) == int or type(number) == float:
+            return Currency(self.nation, self.value * number)

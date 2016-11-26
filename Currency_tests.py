@@ -42,6 +42,9 @@ class TestCurrency(unittest.TestCase):
         with self.assertRaises(DifferentCurrencyCodeError):
             Currency('usd', 10) + Currency('eur', 3)
 
+    def test_int_multiply(self):
+        self.assertEqual(Currency('usd', 5) * 10, Currency('usd', 50))
+
 
 if __name__ == '__main__':
     unittest.main()
