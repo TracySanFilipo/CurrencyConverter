@@ -38,6 +38,10 @@ class TestCurrency(unittest.TestCase):
         with self.assertRaises(DifferentCurrencyCodeError):
             Currency('usd', 10) - Currency('eur', 3)
 
+    def test_add_error(self):
+        with self.assertRaises(DifferentCurrencyCodeError):
+            Currency('usd', 10) + Currency('eur', 3)
+
 
 if __name__ == '__main__':
     unittest.main()
