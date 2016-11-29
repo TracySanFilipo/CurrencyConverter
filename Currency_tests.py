@@ -45,6 +45,12 @@ class TestCurrency(unittest.TestCase):
     def test_int_multiply(self):
         self.assertEqual(Currency('usd', 5) * 10, Currency('usd', 50))
 
+    def test_float_multiply(self):
+        self.assertEqual(Currency('usd', 5) * 10.5, Currency('usd', 52.5))
+
+    def test_embedded_symbols(self):
+        self.assertEqual(Currency('usd', 30), Currency('$30'))
+
 
 if __name__ == '__main__':
     unittest.main()

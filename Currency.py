@@ -6,9 +6,16 @@ class DifferentCurrencyCodeError(Exception):
 
 
 class Currency:
-    def __init__(self, nation, value):
-        self.nation = nation
-        self.value = value
+    symbols = ['$', '€', '£', '¥', '₽', '₩', '฿', '₺', '₮', '₱', '₭', '₴', '₦']
+    embedded_symbols = {'$':'usd', '€': 'eur', '£': 'gbp', '¥': 'jpy', '₽': 'rub', '₩': 'krw', '฿':'thb', '₺': 'try', '₮': 'mnt', '₱': 'mxn', '₭': 'laj', '₴': 'uah', '₦': 'ngn'}
+
+    def __init__(self, nation, value=None):
+        if nation[0] in Currency.symbols:
+            self.nation = Currency.embedded_symbols[nation[0]]
+            self.value = float(nation[1:])
+        else:
+            self.nation = nation
+            self.value = value
 
     def __eq__(self, other):
         return self.__dict__ == other.__dict__
