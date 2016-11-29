@@ -16,5 +16,10 @@ class TestConverter(unittest.TestCase):
         other_dollar = converter_init.convert(Currency('usd', 1), 'usd')
         self.assertEqual(one_dollar, other_dollar)
 
+    def test_converter_handles_changing_currency_code(self):
+        converter_init = Converter({'usd': 1, 'eur': 0.94})
+        one_dollar_to_euro = converter_init.convert(Currency('usd', 1), 'eur')
+        self.assertEqual(one_dollar_to_euro, Currency('eur', 0.94))
+
 if __name__ == '__main__':
     unittest.main()
