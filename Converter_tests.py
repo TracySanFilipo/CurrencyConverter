@@ -1,7 +1,7 @@
 import unittest
 from CurrencyConverter import Converter
 from Currency import Currency
-# from CurrencyConverter import UnknownCurrencyCodeError
+from CurrencyConverter import UnknownCurrencyCodeError
 
 
 class TestConverter(unittest.TestCase):
@@ -30,6 +30,11 @@ class TestConverter(unittest.TestCase):
         converter_init = Converter({'usd': 1.0, 'eur': 0.94, 'aud': 1.34, 'jpy': 112.48})
         euro_to_yen = converter_init.convert(Currency('eur', 1), 'jpy')
         self.assertEqual(euro_to_yen, Currency('jpy', 119.66))
+
+    def test_get_error_if_unknown_currency_code(self):
+        converter_init = Converter({'usd': 1.0, 'eur': 0.94, 'aud': 1.34})
+        euro_to_yen = converter_init.convert(Currency('eur', 1), 'jpy')
+        self.assertRaises(UnknownCurrencyCodeError)
 
 
 if __name__ == '__main__':
